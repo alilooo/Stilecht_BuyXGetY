@@ -28,4 +28,12 @@ class SimpleActionOptionsProviderPlugin
         
         return $result;
     }
+
+    public function afterGetActionWithDiscountQty(
+        \Magento\SalesRule\Model\Rule\Action\SimpleActionOptionsProvider $subject,
+        array $result
+    ) {
+        $result[] = 'buy_x_get_y_cheapest_free';
+        return $result;
+    }
 } 

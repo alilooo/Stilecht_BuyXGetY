@@ -22,5 +22,35 @@
                 </item>
             </argument>
         </field>
+        <field name="discount_step">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="label" xsi:type="string" translate="true">Buy X Items</item>
+                    <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                        <item name="validate-integer" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="discount_amount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="label" xsi:type="string" translate="true">Discount Amount</item>
+                    <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                        <item name="validate-number" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
     </fieldset>
 </form> 
