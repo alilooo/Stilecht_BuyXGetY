@@ -30,13 +30,13 @@
                     <item name="componentType" xsi:type="string">field</item>
                     <item name="label" xsi:type="string" translate="true">Buy X Items</item>
                     <item name="additionalClasses" xsi:type="string">admin__field-small</item>
-                    <item name="visible" xsi:type="boolean">false</item>
                     <item name="imports" xsi:type="array">
-                        <item name="visible" xsi:type="string">${$.provider}:data.simple_action == 'buy_x_get_y_cheapest_free'</item>
-                    </item>
-                    <item name="validation" xsi:type="array">
-                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
-                        <item name="validate-integer" xsi:type="boolean">true</item>
+                        <item name="label" xsi:type="string">
+                            ${$.provider}:data.simple_action == 'buy_x_get_y_cheapest_free' ? 'Buy X' : 'Buy X Items'
+                        </item>
+                        <item name="validation" xsi:type="string">
+                            ${$.provider}:data.simple_action == 'buy_x_get_y_cheapest_free' ? {"required-entry":true,"validate-greater-than-zero":true,"validate-integer":true} : {"validate-greater-than-zero":true,"validate-integer":true}
+                        </item>
                     </item>
                 </item>
             </argument>
@@ -49,14 +49,13 @@
                     <item name="componentType" xsi:type="string">field</item>
                     <item name="label" xsi:type="string" translate="true">Discount Amount</item>
                     <item name="additionalClasses" xsi:type="string">admin__field-small</item>
-                    <item name="visible" xsi:type="boolean">false</item>
                     <item name="imports" xsi:type="array">
-                        <item name="visible" xsi:type="string">${$.provider}:data.simple_action == 'buy_x_get_y_cheapest_free'</item>
-                    </item>
-                    <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">false</item>
-                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
-                        <item name="validate-number" xsi:type="boolean">true</item>
+                        <item name="label" xsi:type="string">
+                            ${$.provider}:data.simple_action == 'buy_x_get_y_cheapest_free' ? 'Get Y Free' : 'Discount Amount'
+                        </item>
+                        <item name="validation" xsi:type="string">
+                            ${$.provider}:data.simple_action == 'buy_x_get_y_cheapest_free' ? {"required-entry":true,"validate-greater-than-zero":true,"validate-number":true} : {"validate-greater-than-zero":true,"validate-number":true}
+                        </item>
                     </item>
                 </item>
             </argument>
