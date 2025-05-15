@@ -18,10 +18,12 @@ class ValueProvider
         \Magento\SalesRule\Model\Rule\Metadata\ValueProvider $subject,
         $result
     ) {
-        $result['simple_action']['options'][] = [
-            'label' => __('Buy X Get Y Cheapest Free'),
-            'value' => 'buy_x_get_y_cheapest_free'
-        ];
+        if (isset($result['simple_action']) && isset($result['simple_action']['options'])) {
+            $result['simple_action']['options'][] = [
+                'label' => __('Buy X Get Y Cheapest Free'),
+                'value' => 'buy_x_get_y_cheapest_free'
+            ];
+        }
         
         return $result;
     }
