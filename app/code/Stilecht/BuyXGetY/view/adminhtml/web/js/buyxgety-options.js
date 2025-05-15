@@ -35,27 +35,54 @@ define([
                     simpleActionSelect.append(
                         $('<option></option>')
                             .attr('value', 'buy_x_get_y_cheapest_free')
-                            .text('Buy X Get Y Cheapest Free')
+                            .text('BXGY Cheapest Free')
                     );
                 }
                 
-                // Handle the change event to update labels
-                simpleActionSelect.on('change', function() {
-                    var action = $(this).val();
+                // Get field containers
+                var discountStepContainer = $('#discount_step_container');
+                var discountAmountContainer = $('#discount_amount_container');
+                var discountQtyContainer = $('#discount_qty_container');
+                
+                // Function to update fields based on selected action
+                function updateFields() {
+                    var action = simpleActionSelect.val();
                     
+                    // For all actions, reset to default first
+                    discountStepContainer.hide();
+                    
+                    // Show/hide fields based on action type
                     if (action === 'buy_x_get_y_cheapest_free') {
+                        // Show all necessary fields
+                        discountStepContainer.show();
+                        discountAmountContainer.show();
+                        
                         // Update labels for our action
                         $('label[for="discount_step"]').text('Buy X Products');
                         $('label[for="discount_amount"]').text('Get Y Free (Cheapest)');
                         
-                        // Update validation
+                        // Set validation to integers only
                         $('#discount_step').attr('data-validate', '{"required":true, "validate-integer":true, "validate-greater-than-zero":true}');
                         $('#discount_amount').attr('data-validate', '{"required":true, "validate-integer":true, "validate-greater-than-zero":true}');
+                    } else if (action === 'by_fixed' || action === 'by_percent' || action === 'cart_fixed') {
+                        // For standard discount types
+                        discountAmountContainer.show();
+                    } else if (action === 'buy_x_get_y') {
+                        // For standard BOGO
+                        discountStepContainer.show();
+                        discountAmountContainer.show();
+                        
+                        // Reset labels to default
+                        $('label[for="discount_step"]').text('Buy X Items');
+                        $('label[for="discount_amount"]').text('Get Y Discount');
                     }
-                });
+                }
                 
-                // Trigger change event to update UI if our option is selected
-                simpleActionSelect.trigger('change');
+                // Handle the change event to update labels
+                simpleActionSelect.on('change', updateFields);
+                
+                // Trigger change event to update UI initially
+                updateFields();
             }
         }, 500);
     };
