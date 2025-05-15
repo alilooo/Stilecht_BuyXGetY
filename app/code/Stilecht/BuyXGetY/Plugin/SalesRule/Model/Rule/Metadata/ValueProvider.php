@@ -69,6 +69,13 @@ class ValueProvider
             'label' => __('Get Y Free (Cheapest)'),
             'value' => 1
         ];
+        // Ensure UI component configuration for discount_amount
+        if (!isset($result['discount_amount']['arguments']['data']['config'])) {
+            $result['discount_amount']['arguments']['data']['config'] = [];
+        }
+        $result['discount_amount']['arguments']['data']['config']['componentType'] = 'field';
+        $result['discount_amount']['arguments']['data']['config']['formElement'] = 'input';
+        $result['discount_amount']['arguments']['data']['config']['dataType'] = 'text';
 
         return $result;
     }
