@@ -30,7 +30,7 @@ class ValueProvider
             'value' => 'buy_x_get_y_cheapest_free'
         ];
 
-        // Ensure UI component configuration
+        // Ensure UI component configuration for simple_action
         if (!isset($result['simple_action']['arguments']['data']['config'])) {
             $result['simple_action']['arguments']['data']['config'] = [];
         }
@@ -50,6 +50,13 @@ class ValueProvider
             'label' => __('Buy X Products'),
             'value' => 1
         ];
+        // Ensure UI component configuration for discount_step
+        if (!isset($result['discount_step']['arguments']['data']['config'])) {
+            $result['discount_step']['arguments']['data']['config'] = [];
+        }
+        $result['discount_step']['arguments']['data']['config']['componentType'] = 'field';
+        $result['discount_step']['arguments']['data']['config']['formElement'] = 'input';
+        $result['discount_step']['arguments']['data']['config']['dataType'] = 'text';
 
         // Configure discount_amount for our action type
         if (!isset($result['discount_amount'])) {
