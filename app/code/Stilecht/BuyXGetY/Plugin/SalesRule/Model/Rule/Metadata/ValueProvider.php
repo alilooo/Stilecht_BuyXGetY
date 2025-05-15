@@ -32,6 +32,17 @@ class ValueProvider
             'value' => 'buy_x_get_y_cheapest_free'
         ];
         
+        // Ensure the component type is set
+        if (!isset($result['simple_action']['arguments']['data']['config'])) {
+            $result['simple_action']['arguments']['data']['config'] = [];
+        }
+        
+        // Set required UI component configuration
+        $result['simple_action']['arguments']['data']['config']['componentType'] = 'select';
+        $result['simple_action']['arguments']['data']['config']['component'] = 'Magento_Ui/js/form/element/select';
+        $result['simple_action']['arguments']['data']['config']['formElement'] = 'select';
+        $result['simple_action']['arguments']['data']['config']['dataType'] = 'text';
+        
         return $result;
     }
 } 

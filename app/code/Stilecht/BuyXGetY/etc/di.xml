@@ -28,4 +28,15 @@
     <type name="Magento\SalesRule\Model\Validator">
         <plugin name="stilecht_buyxgety_validator" type="Stilecht\BuyXGetY\Plugin\SalesRule\Model\Validator" sortOrder="20"/>
     </type>
+    
+    <!-- Add UI Component Type for simple_action field -->
+    <type name="Magento\Ui\Component\Form\Field">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="js_config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config> 

@@ -4,11 +4,25 @@
 
 define([
     'jquery',
+    'Magento_Ui/js/form/element/select',
     'domReady!'
-], function ($) {
+], function ($, Select) {
     'use strict';
 
     return function() {
+        // Make sure UI component registry is loaded
+        require(['uiRegistry'], function(registry) {
+            // Try to find the simple_action field in the registry
+            registry.get('sales_rule_form.sales_rule_form.actions.simple_action', function(simpleAction) {
+                if (simpleAction) {
+                    // Set component type if it's not already set
+                    if (!simpleAction.componentType) {
+                        simpleAction.set('componentType', 'select');
+                    }
+                }
+            });
+        });
+        
         // Wait for the simple_action dropdown to be available
         var checkInterval = setInterval(function() {
             var simpleActionSelect = $('[name="simple_action"]');
