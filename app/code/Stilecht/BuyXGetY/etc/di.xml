@@ -19,6 +19,11 @@
         <plugin name="stilecht_buyxgety_value_provider" type="Stilecht\BuyXGetY\Plugin\SalesRule\Model\Rule\Metadata\ValueProvider" sortOrder="10"/>
     </type>
 
+    <!-- Plugin to add our discount type to the available actions -->
+    <type name="Magento\SalesRule\Model\Rule\Action\SimpleActionOptionsProvider">
+        <plugin name="stilecht_buyxgety_action_plugin" type="Stilecht\BuyXGetY\Plugin\SalesRule\Model\Rule\Action\DiscountPlugin" sortOrder="10"/>
+    </type>
+
     <!-- Plugin for additional validation logic (optional) -->
     <type name="Magento\SalesRule\Model\Validator">
         <plugin name="stilecht_buyxgety_validator" type="Stilecht\BuyXGetY\Plugin\SalesRule\Model\Validator" sortOrder="20"/>
