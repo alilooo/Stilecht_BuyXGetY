@@ -5,6 +5,8 @@
 
 namespace Stilecht\BuyXGetY\Plugin\SalesRule\Model\Rule\Action;
 
+use Magento\Framework\Data\OptionSourceInterface;
+
 class SimpleActionOptionsProviderPlugin
 {
     /**
@@ -16,7 +18,7 @@ class SimpleActionOptionsProviderPlugin
      */
     public function afterToOptionArray(
         \Magento\SalesRule\Model\Rule\Action\SimpleActionOptionsProvider $subject,
-        $result
+        array $result
     ) {
         // Add our custom discount type
         $result[] = [
