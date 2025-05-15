@@ -21,7 +21,7 @@
 
     <!-- Plugin to add our discount type to the available actions -->
     <type name="Magento\SalesRule\Model\Rule\Action\SimpleActionOptionsProvider">
-        <plugin name="stilecht_buyxgety_action_plugin" type="Stilecht\BuyXGetY\Plugin\SalesRule\Model\Rule\Action\DiscountPlugin" sortOrder="10"/>
+        <plugin name="stilecht_buyxgety_action_plugin" type="Stilecht\BuyXGetY\Plugin\SalesRule\Model\Rule\Action\SimpleActionOptionsProviderPlugin" sortOrder="10"/>
     </type>
 
     <!-- Plugin for additional validation logic (optional) -->
